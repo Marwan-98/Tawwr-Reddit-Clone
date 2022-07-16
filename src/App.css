@@ -1,10 +1,147 @@
 .App {
   text-align: center;
+  background-color: #f3f4f6;
+}
+
+/* Colors
+  Dark:#131232,
+  Pink: #FC2E7E,
+  White:#A7A6B4
+*/
+
+.nav {
+  background-color: #ffffff;
+}
+
+.nav-btn {
+  background-color: #e11d48 !important;
+  border-color: #e11d48 !important;
+}
+
+.comment-body {
+  color: #000000;
+}
+
+.comment-body p {
+  color: #9ba3ae;
+}
+
+.comment-box,
+.post-body {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(227, 227, 227, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(227, 227, 227, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(227, 227, 227, 0.75);
+}
+
+.post-body .m-2 span,
+.posts-container .m-2 span {
+  color: #9ba3ae;
+}
+
+.post-icon {
+  cursor: pointer;
+}
+
+img {
+  width: 80px;
+}
+
+.search-icon {
+  height: 15px;
+  width: 15px;
+}
+
+.face-pic {
+  height: 30px;
+  width: auto;
+  border-radius: 100%;
+}
+
+.post-face-pic {
+  height: 40px;
+  width: auto;
+  border-radius: 100%;
+}
+
+.post-icons {
+  height: 20px;
+  width: auto;
+  margin: 0 10px 0 0;
+}
+
+.post-icons:last-child {
+  margin: 0 5px;
+}
+
+.statistics:not(:first-child) {
+  margin-left: 20px;
+}
+
+.icon {
+  background-color: white !important;
+  border-right: none !important;
+}
+
+.search {
+  border-left: none !important;
+}
+
+.posts-container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.skeleton-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: #444444;
+  animation: skeleton 1s alternate infinite;
+}
+
+.skeleton-text {
+  height: 10px;
+  width: 100%;
+  background-color: #444444;
+  animation: skeleton 1s alternate infinite;
+}
+
+.skeleton-text:last-child {
+  width: 90%;
+}
+
+@keyframes skeleton {
+  0% {
+    background-color: #444444;
+  }
+  100% {
+    background-color: #b9b7b7;
+  }
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media (max-width: 995px) {
+  .face-pic {
+    display: none;
+  }
+  .nav-box {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .posts-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

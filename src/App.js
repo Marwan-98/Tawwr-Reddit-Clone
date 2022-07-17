@@ -22,7 +22,6 @@ function App() {
   const getPost = () => {
     API.get("/posts").then((response) => {
       response = response.data.data.sort((a, b) => b.id - a.id);
-      console.log(response);
       dispatch(getPosts(response));
     });
   };

@@ -46,7 +46,7 @@ export default function MyNavbars({ addPost, getFilter }) {
     <Navbar collapseOnSelect expand="lg" className="fixed-top nav">
       <Row className="d-flex align-items-start w-100">
         <Col xs={3} lg={2}>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               src="https://upload.wikimedia.org/wikipedia/en/5/58/Reddit_logo_new.svg"
               alt="logo"

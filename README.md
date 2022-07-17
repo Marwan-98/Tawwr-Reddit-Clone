@@ -22,4 +22,4 @@ In this clone you can:
 
 ### Nav Desktop
 
-[This is an image](/relative/path/nav-desktop.png?raw=true)
+[This is an image](/relative/path/img/nav-desktop.png?raw=true)

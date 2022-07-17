@@ -22,4 +22,4 @@ In this clone you can:
 
 ### Nav Desktop
 
-[This is an image](https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/nav-desktop.PNG?raw=true)
+<img alt="Navbar in desktop" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/nav-desktop.PNG?raw=true">

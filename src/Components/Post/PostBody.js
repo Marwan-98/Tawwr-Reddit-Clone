@@ -2,9 +2,19 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import { API } from "../../API/api";
 import moment from "moment";
 
-export default function PostBody({ post, vote }) {
+export default function PostBody({ post, id, getPost }) {
+  const vote = (sign) => {
+    API.post("/posts/" + id + "/vote", {
+      userId: post.userId,
+      userVote: sign,
+    }).then(() => {
+      getPost();
+    });
+  };
+
   return (
     <div className="post-body mt-5 px-0 py-4 text-start col-lg-6 col-xs-12">
       <Row className="mb-4 px-3">

@@ -6,9 +6,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 import { useDispatch, useSelector } from "react-redux/es/exports";
 
-import { API } from "../API/api";
+import { API } from "../../../API/api";
 
-import { getaComment } from "../actions/getcomment.action";
+import { getaComment } from "../../../actions/getcomment.action";
 
 export default function AddComment({ id, getPost }) {
   const comment = useSelector((state) => state.comment);

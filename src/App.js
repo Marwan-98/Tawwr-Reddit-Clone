@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getPosts } from "./actions/getposts.action";
 import { setFilter } from "./actions/setFilter.action";
 //--
-import Post from "./Components/Post";
-import Posts from "./Components/Posts";
-import MyNavbars from "./Components/Navbar";
-import Skeleton from "./Components/Skeleton";
+import Post from "./Components/Post/Post";
+import Posts from "./Components/Main/Posts";
+import MyNavbars from "./Components/Navbar/Navbar";
+import Skeleton from "./Components/Main/Skeleton";
 
 import { API } from "./API/api";
 
@@ -51,6 +51,8 @@ function App() {
       getPost();
     });
   };
+
+  //"https://jsonplaceholder.typicode.com/users/"
 
   return (
     <div className="App" style={{ minHeight: "100vh" }}>

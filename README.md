@@ -1,7 +1,4 @@
 # Reddit Clone App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## App Features
 
 In this clone you can:
@@ -22,4 +19,20 @@ In this clone you can:
 
 ### Nav Desktop
 
-[This is an image](/relative/path/to/img/nav-desktop.png?raw=true)
+<img alt="Navbar in desktop" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/nav-desktop.PNG?raw=true">
+
+### Nav Mobile
+
+<img alt="Navbar in mobile" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/nav-mobile.PNG?raw=true">
+
+### Body
+
+<img alt="Body" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/body-desktop.PNG?raw=true">
+
+### Post Page
+
+<img alt="Post Page" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/post-desktop.PNG?raw=true">
+
+### Comment
+
+<img alt="Comment" src="https://github.com/Marwan-98/Tawwr-Reddit-Clone/blob/main/img/comment-desktop.PNG?raw=true">

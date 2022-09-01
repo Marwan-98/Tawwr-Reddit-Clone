@@ -10,7 +10,7 @@ import combineReducers from "./reducers/index";
 
 const store = createStore(combineReducers);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <Provider store={store}>
     <BrowserRouter>

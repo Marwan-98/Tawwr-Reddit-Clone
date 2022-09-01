@@ -1,4 +1,7 @@
-export const comments = (state = "", action) => {
+export const comments = (
+  state = "",
+  action: { type: string; payload: string }
+) => {
   switch (action.type) {
     case "GET_COMMENT":
       return action.payload;

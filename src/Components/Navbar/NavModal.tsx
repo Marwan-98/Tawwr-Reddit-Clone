@@ -1,5 +1,3 @@
-import React from "react";
-
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -7,8 +5,27 @@ import Alert from "react-bootstrap/Alert";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { showPost } from "../../API/api";
 
-export default function NavModal({ addPost, show, setShow, handleClose }) {
+type Props = {
+  showPosts: Function;
+  show: boolean;
+  setShow: Function;
+  handleClose: Function;
+};
+
+export default function NavModal({
+  showPosts,
+  show,
+  setShow,
+  handleClose,
+}: Props) {
+  const addPost = (title: string, description: string) => {
+    showPost(title, description).then(() => {
+      showPosts();
+    });
+  };
+
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -24,15 +41,20 @@ export default function NavModal({ addPost, show, setShow, handleClose }) {
         .required("your message is required")
         .min(20, "Please write 20 characters or more"),
     }),
-    onSubmit: (values) => {
-      addPost(values.title, values.description);
+    onSubmit: ({ title, description }) => {
+      addPost(title, description);
       setShow(false);
       formik.resetForm();
     },
   });
 
   return (
-    <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+    <Modal
+      show={show}
+      onHide={() => handleClose()}
+      backdrop="static"
+      keyboard={false}
+    >
       <Form onSubmit={formik.handleSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>Your Next Post</Modal.Title>

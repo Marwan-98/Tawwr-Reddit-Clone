@@ -9,8 +9,9 @@ import NavBrand from "./NavBrand";
 import SearchBar from "./SearchBar";
 import NavToggle from "./NavToggle";
 import NavModal from "./NavModal";
+import { AppProps } from "../../utils/typs";
 
-export default function MyNavbars({ addPost, getFilter }) {
+export default function MyNavbars({ showPosts }: {showPosts: Function}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,14 +21,14 @@ export default function MyNavbars({ addPost, getFilter }) {
     <Navbar collapseOnSelect expand="lg" className="fixed-top nav">
       <Row className="d-flex align-items-start w-100">
         <NavBrand />
-        <SearchBar getFilter={getFilter} />
+        <SearchBar />
         <NavToggle handleShow={handleShow} />
       </Row>
       <NavModal
         show={show}
         setShow={setShow}
         handleClose={handleClose}
-        addPost={addPost}
+        showPosts={showPosts}
       />
     </Navbar>
   );

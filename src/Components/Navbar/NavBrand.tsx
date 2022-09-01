@@ -8,7 +8,7 @@ export default function NavBrand() {
     <Col xs={3} lg={2}>
       <Navbar.Brand href="/">
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/5/58/Reddit_logo_new.svg"
+          src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
           alt="logo"
         />
       </Navbar.Brand>

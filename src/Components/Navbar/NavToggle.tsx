@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
 
-export default function NavToggle({ handleShow }) {
+export default function NavToggle({ handleShow }: { handleShow: Function }) {
   return (
     <Col xs={2}>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -18,8 +18,8 @@ export default function NavToggle({ handleShow }) {
               alt="user"
             />
           </Nav.Item>
-          <Nav.Item href="#action/3.2">
-            <Button onClick={handleShow} className="mx-1 nav-btn">
+          <Nav.Item>
+            <Button onClick={() => handleShow()} className="mx-1 nav-btn">
               New Post
             </Button>
           </Nav.Item>

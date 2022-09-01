@@ -10,21 +10,22 @@ import { API } from "../../../API/api";
 
 import { getaComment } from "../../../actions/getcomment.action";
 
-export default function AddComment({ id, getPost }) {
-  const comment = useSelector((state) => state.comment);
+export default function AddComment({ id, showPosts, showPost }: { id: number, showPosts: Function, showPost: Function}) {
+  const comment = useSelector((state: { comment: string }) => state.comment);
 
   const dispatch = useDispatch();
 
-  const getComment = (e) => {
+  const getComment = (e: { target: { value: string } }) => {
     dispatch(getaComment(e.target.value));
   };
 
   const addComment = () => {
-    API.post("/posts/" + id + "/comment", {
-      userId: 5,
+    API.post("/comments/new", {
       body: comment,
+      post: id,
+      user: 2,
     }).then(() => {
-      getPost();
+      showPost(id);
       dispatch(getaComment(""));
     });
   };

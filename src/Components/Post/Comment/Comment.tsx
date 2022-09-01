@@ -2,7 +2,10 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export default function Comment({ userId, body }) {
+import moment from "moment";
+import { PostComment } from "../../../utils/typs";
+
+export default function Comment({ id, body, dateCreated }: PostComment) {
   return (
     <Row className="mt-2 mx-0 comment-body">
       <Col xs={2} className="text-end">
@@ -13,11 +16,10 @@ export default function Comment({ userId, body }) {
         />
       </Col>
       <Col xs={10}>
-        <h6>{userId}</h6>
+        <h6>{id}</h6>
         <p>{body}</p>
-        <strong>
-          4d ago . <span>Reply</span>
-        </strong>
+        {moment(dateCreated).format("h:mm A")}
+        <span>Reply</span>
       </Col>
       <hr />
     </Row>

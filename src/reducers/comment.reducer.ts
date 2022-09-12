@@ -7,7 +7,6 @@ export const comments = (
       return action.payload;
     default:
       return state;
-      break;
   }
 };
 

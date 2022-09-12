@@ -6,6 +6,8 @@ import Alert from "react-bootstrap/Alert";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { showPost } from "../../API/api";
+import { useSelector } from "react-redux";
+import { AppProps } from "../../utils/typs";
 
 type Props = {
   showPosts: Function;
@@ -20,17 +22,19 @@ export default function NavModal({
   setShow,
   handleClose,
 }: Props) {
-  const addPost = (title: string, description: string) => {
-    showPost(title, description).then(() => {
+  const tags = useSelector((state: AppProps) => state.tags);
+
+  const addPost = (title: string, description: string, tags: Number[]) => {
+    showPost(title, description, tags).then(() => {
       showPosts();
     });
   };
-
   const formik = useFormik({
     initialValues: {
       title: "",
       description: "",
       userId: "",
+      tags: [],
     },
     validationSchema: Yup.object({
       title: Yup.string()
@@ -41,8 +45,8 @@ export default function NavModal({
         .required("your message is required")
         .min(20, "Please write 20 characters or more"),
     }),
-    onSubmit: ({ title, description }) => {
-      addPost(title, description);
+    onSubmit: ({title, description, tags}) => {
+      addPost(title, description, tags);
       setShow(false);
       formik.resetForm();
     },
@@ -89,6 +93,19 @@ export default function NavModal({
             {formik.touched.description && formik.errors.description && (
               <Alert variant="danger">{formik.errors.description}</Alert>
             )}{" "}
+          </Form.Group>
+          <Form.Group role="group" aria-labelledby="checkbox-group">
+            {tags.map((tag) => (
+                <Form.Check
+                  type="checkbox"
+                  id="default-checkbox"
+                  label={tag.name}
+                  value={+tag.id}
+                  key={tag.id}
+                  name="tags"
+                  onChange={formik.handleChange}
+                />
+            ))}
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>

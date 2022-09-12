@@ -1,6 +1,6 @@
-import { AxiosResponse } from "axios";
+import { Post } from "../utils/typs";
 
-export const handlePosts = (posts: AxiosResponse<any, any>) => {
+export const handlePosts = (posts: Post[]) => {
   return {
     type: "GET_POSTS",
     payload: posts,

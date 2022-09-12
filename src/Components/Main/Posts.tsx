@@ -14,8 +14,7 @@ import { ReactComponent as ThumbsDown } from "../../assets/hand-thumbs-down.svg"
 import { ReactComponent as CommentBubble } from "../../assets/chat-left-dots.svg";
 import { Post } from "../../utils/typs";
 
-
-export default function Posts({ filterPosts }: {filterPosts: Function}) {
+export default function Posts({ filterPosts }: { filterPosts: Function }) {
   return (
     <Container className="mt-5 pt-4 posts-container">
       {filterPosts().map((post: Post) => (
@@ -33,7 +32,7 @@ export default function Posts({ filterPosts }: {filterPosts: Function}) {
                 />
               </div>
               <div className="m-2">
-                <h6 className="m-0">{post.userId}</h6>
+                <h6 className="m-0">{`${post.user.firstname} ${post.user.lastname}`}</h6>
                 <span>
                   {moment(post.createdAt).format("MMMM D")} at{" "}
                   {moment(post.createdAt).format("h:mm A")}

@@ -10,36 +10,42 @@ import Posts from "./Components/Main/Posts";
 import MyNavbars from "./Components/Navbar/Navbar";
 import Skeleton from "./Components/Main/Skeleton";
 
-import { getPosts } from "./API/api";
+import { getPosts, getTags } from "./API/api";
 import { AppProps } from "./utils/typs";
+import { handleTags } from "./actions/handletags.action";
 
 function App() {
   const posts = useSelector((state: AppProps) => state.posts);
   const filter = useSelector((state: AppProps) => state.filter);
 
-  
   const dispatch = useDispatch();
-  
+
   const showPosts = () => {
     getPosts().then((response) => {
-      response = response.data.sort(
+      const res = response.data.sort(
         (a: { id: number }, b: { id: number }) => b.id - a.id
-        );
-        dispatch(handlePosts(response));
+      );
+      dispatch(handlePosts(res));
     });
+  };
+
+  const showTags = () => {
+    getTags().then((res) => dispatch(handleTags(res.data)));
   };
 
   const filterPosts = () => {
     if (filter === "") {
       return posts;
     } else {
-      return posts!.filter((post) => post.title.toLowerCase().includes(filter!));
+      return posts!.filter((post) =>
+        post.title.toLowerCase().includes(filter!)
+      );
     }
   };
-  
+
   useEffect(() => {
     showPosts();
-    console.log(posts);
+    showTags();
   }, []);
 
   return (

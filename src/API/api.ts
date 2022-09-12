@@ -6,14 +6,23 @@ export const getPosts = () => {
   return API.get("/posts");
 };
 
-export const getPost = (id: string) => {
-  return API.get(`posts/${id}`)
-}
+export const getTags = () => {
+  return API.get("/tags");
+};
 
-export const showPost = (title: string, description: string) => {
+export const getPost = (id: string) => {
+  return API.get(`posts/${id}`);
+};
+
+export const showPost = (
+  title: string,
+  description: string,
+  tags: Number[]
+) => {
   return API.post("/posts/new", {
     title: title,
     body: description,
+    tags: tags,
     user: 2,
   });
 };
@@ -25,5 +34,3 @@ export const addVote = async (userId: number, id: number, sign: number) => {
     vote: sign,
   });
 };
-
-

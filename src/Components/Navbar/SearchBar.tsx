@@ -9,7 +9,7 @@ export default function SearchBar() {
   const dispatch = useDispatch();
 
   const getFilter = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setFilter(e.target.value));
+    dispatch(setFilter((e.target.value).toLowerCase()));
   };
 
   return (

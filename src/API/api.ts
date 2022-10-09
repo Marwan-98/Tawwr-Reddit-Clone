@@ -1,6 +1,8 @@
 import axios from "axios";
 
-export const API = axios.create({ baseURL: "http://localhost:4000" });
+export const API = axios.create({
+  baseURL: "https://blog-server-0e4r.onrender.com",
+});
 
 export const getPosts = () => {
   return API.get("/posts");
